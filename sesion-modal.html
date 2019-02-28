@@ -1,0 +1,59 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="sesion-modal">
+  <template>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <style>
+      :host {
+        display: block;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <section>
+      <button type="button" class="nes-btn is-primary" on-click="_openModal">
+        Open rounded dialog
+      </button>
+      <dialog class="nes-dialog is-rounded" id="dialogRounded">
+        <form method="dialog">
+          <p class="title">¿ Are you want close the game ?</p>
+          <menu class="dialog-menu">
+            <button type="button" class="nes-btn is-warning">Cancel</button>
+            <button class="nes-btn is-success">Confirm</button>
+          </menu>
+        </form>
+      </dialog>
+    </section>
+  </template>
+
+  <script>
+    /**
+     * `sesion-modal`
+     * sesion to show an view to get out of game
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class SesionModal extends Polymer.Element {
+      static get is() { return 'sesion-modal'; }
+      static get properties() {
+        return {
+          out: {
+            type: Boolean,
+            value: false
+          }
+        };
+      }
+      _openModal() {
+        this.$.dialogRounded.showModal();
+      }
+    }
+
+    window.customElements.define(SesionModal.is, SesionModal);
+  </script>
+</dom-module>
