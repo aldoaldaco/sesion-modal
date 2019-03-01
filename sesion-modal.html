@@ -22,8 +22,8 @@
         <form method="dialog">
           <p class="title">¿ Are you want close the game ?</p>
           <menu class="dialog-menu">
-            <button type="button" class="nes-btn is-warning">Cancel</button>
-            <button class="nes-btn is-success">Confirm</button>
+            <button on-click="_cancel" class="nes-btn is-warning">Cancel</button>
+            <button on-click="_confirm" class="nes-btn is-success">Confirm</button>
           </menu>
         </form>
       </dialog>
@@ -48,6 +48,20 @@
             value: false
           }
         };
+      }
+      _cancel() {
+        this.dispatchEvent(new CustomEvent('cancel-modal',  {
+          bubbles: true,
+          composed: true,
+          detail: 'cancel'
+        }));
+      }
+      _confirm() {
+        this.dispatchEvent(new CustomEvent('confirm-modal',  {
+          bubbles: true,
+          composed: true,
+          detail: 'confirm'
+        }));
       }
       _openModal() {
         this.$.dialogRounded.showModal();
