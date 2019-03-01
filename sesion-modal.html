@@ -5,7 +5,12 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <style>
       :host {
-        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       section {
         display: flex;
@@ -15,8 +20,8 @@
       }
     </style>
     <section>
-      <button type="button" class="nes-btn is-primary" on-click="_openModal">
-        Open rounded dialog
+      <button type="button" class="nes-btn is-error" on-click="_openModal">
+        Exit
       </button>
       <dialog class="nes-dialog is-rounded" id="dialogRounded">
         <form method="dialog">
